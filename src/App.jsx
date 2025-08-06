@@ -6,8 +6,9 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import FormOld from "./components/form-old";
 import Navigation from "./components/navigation";
+import FormOld from "./components/form-old";
+import FormUseActionState from "./components/form-useActionState";
 
 const DELAY = 1000;
 
@@ -61,6 +62,10 @@ function App() {
           <Route
             path="/old"
             element={<FormOld createReminder={createReminder} />}
+          />
+          <Route
+            path="/new"
+            element={<FormUseActionState createReminder={createReminder} />}
           />
         </Routes>
       </main>
