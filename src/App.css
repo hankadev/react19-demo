@@ -1,0 +1,145 @@
+:root {
+  --primary: #003360;
+  --secondary: #8fc62b;
+  --text: #fff;
+  --error: #f45050;
+  --radius: 1rem;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text);
+  font-family: sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 2rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.reminders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.reminder-card {
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 1.5rem;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: rotate(-1deg);
+  transition: transform 0.2s ease;
+  width: 250px;
+  min-height: 200px;
+  flex-shrink: 0;
+}
+
+.reminder-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.reminder-card:hover {
+  transform: rotate(0deg) scale(1.02);
+  z-index: 10;
+}
+
+
+
+form {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  border-radius: var(--radius);
+  color: var(--primary);
+  padding: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+textarea {
+  resize: none;
+}
+
+.create-button {
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: fit-content;
+  align-self: flex-end;
+  border: none;
+}
+
+.create-button:hover {
+  cursor: pointer;
+}
+
+.error-text {
+  color: var(--error);
+  text-align: center;
+}
+
+nav a {
+  color: var(--secondary);
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--secondary);
+  border-radius: var(--radius);
+  margin: 0.5rem;
+}
+
+nav  a.active {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Media query for medium screens and below */
+@media (max-width: 768px) {
+  .reminders {
+    justify-content: center;
+  }
+
+  .reminder-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  form {
+    width: 100%;
+  }
+}
