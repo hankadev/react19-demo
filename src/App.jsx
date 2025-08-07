@@ -6,16 +6,19 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+
 import Navigation from "./components/Navigation";
-import FormOld from "./components/form-old";
-import FormUseActionState from "./components/form-useActionState";
-import FormUseTransition from "./components/form-useTransition";
 import CodePreview from "./components/CodePreview";
 
-// Import source code as raw text
+import OldFormPage from "./pages/OldFormPage";
+import UseTransitionPage from "./pages/UseTransitionPage";
+import UseActionStatePage from "./pages/UseActionStatePage";
+import UseOptimisticPage from "./pages/UseOptimisticPage";
+
 import FormOldCode from "./components/form-old/index.tsx?raw";
 import FormUseActionStateCode from "./components/form-useActionState/index.tsx?raw";
 import FormUseTransitionCode from "./components/form-useTransition/index.tsx?raw";
+import UseOptimisticPageCode from "./pages/UseOptimisticPage.jsx?raw";
 
 const DELAY = 1000;
 
@@ -57,28 +60,43 @@ const App = () => {
 
         <div className="main-content">
           <div className="left-column">
-            <section className="reminders">
-              {reminders.map(reminder => (
-                <div className="reminder-card" key={reminder.id}>
-                  <h3>{reminder.title}</h3>
-                  <p>{reminder.description}</p>
-                </div>
-              ))}
-            </section>
-
             <Routes>
               <Route path="/" element={<Navigate to="/old" replace />} />
               <Route
                 path="/old"
-                element={<FormOld createReminder={createReminder} />}
+                element={
+                  <OldFormPage
+                    reminders={reminders}
+                    createReminder={createReminder}
+                  />
+                }
               />
               <Route
                 path="/use-transition"
-                element={<FormUseTransition createReminder={createReminder} />}
+                element={
+                  <UseTransitionPage
+                    reminders={reminders}
+                    createReminder={createReminder}
+                  />
+                }
               />
               <Route
                 path="/use-action-state"
-                element={<FormUseActionState createReminder={createReminder} />}
+                element={
+                  <UseActionStatePage
+                    reminders={reminders}
+                    createReminder={createReminder}
+                  />
+                }
+              />
+              <Route
+                path="/use-optimistic"
+                element={
+                  <UseOptimisticPage
+                    reminders={reminders}
+                    createReminder={createReminder}
+                  />
+                }
               />
             </Routes>
           </div>
@@ -100,6 +118,12 @@ const App = () => {
                 path="/use-action-state"
                 element={
                   <CodePreview code={FormUseActionStateCode} language="tsx" />
+                }
+              />
+              <Route
+                path="/use-optimistic"
+                element={
+                  <CodePreview code={UseOptimisticPageCode} language="jsx" />
                 }
               />
             </Routes>

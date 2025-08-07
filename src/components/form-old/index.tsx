@@ -41,6 +41,7 @@ const Form: React.FC<FormProps> = ({ createReminder }) => {
       <input
         type="text"
         name="title"
+        disabled={isPending}
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
@@ -49,6 +50,7 @@ const Form: React.FC<FormProps> = ({ createReminder }) => {
       <textarea
         name="description"
         rows={5}
+        disabled={isPending}
         value={description}
         onChange={e => setDescription(e.target.value)}
       />

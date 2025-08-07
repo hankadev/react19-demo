@@ -18,7 +18,7 @@ const Form: React.FC<FormProps> = ({ createReminder }) => {
 
   const [isPending, startTransition] = useTransition();
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async () => {
     startTransition(async () => {
       const error = await createReminder(title, description);
       if (error?.error) {
@@ -31,13 +31,14 @@ const Form: React.FC<FormProps> = ({ createReminder }) => {
   };
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
+    <form autoComplete="off" action={handleSubmit}>
       <p className="error-text">{error}</p>
 
       <label htmlFor="title">Title</label>
       <input
         type="text"
         name="title"
+        disabled={isPending}
         value={title}
         onChange={e => setTitle(e.target.value)}
       />
@@ -46,6 +47,7 @@ const Form: React.FC<FormProps> = ({ createReminder }) => {
       <textarea
         name="description"
         rows={5}
+        disabled={isPending}
         value={description}
         onChange={e => setDescription(e.target.value)}
       />

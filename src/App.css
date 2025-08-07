@@ -65,6 +65,62 @@ p {
   z-index: 10;
 }
 
+/* Optimistic updates styles */
+
+.optimistic-card {
+  opacity: 0.8;
+  position: relative;
+}
+
+.optimistic-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--accent);
+  color: var(--primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.form-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: rgba(255, 193, 7, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.form-status .spinner {
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
 
 
 form {

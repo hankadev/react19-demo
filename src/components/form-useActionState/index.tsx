@@ -34,10 +34,10 @@ const Form: React.FC<FormProps> = ({ createReminder }) => {
       <p className="error-text">{error?.error}</p>
 
       <label htmlFor="title">Title</label>
-      <input type="text" name="title" />
+      <input type="text" name="title" disabled={isPending} />
 
       <label htmlFor="description">Description</label>
-      <textarea name="description" rows={5} />
+      <textarea name="description" rows={5} disabled={isPending} />
 
       <button type="submit" className="create-button" disabled={isPending}>
         {isPending ? "Creating..." : "Create"}

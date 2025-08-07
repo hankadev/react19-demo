@@ -11,6 +11,9 @@ const Navigation = () => (
     <NavLink to="/use-action-state" className="nav-link">
       useActionState
     </NavLink>
+    <NavLink to="/use-optimistic" className="nav-link">
+      useOptimistic
+    </NavLink>
   </nav>
 );
 
