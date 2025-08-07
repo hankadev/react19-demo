@@ -6,7 +6,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Navigation from "./components/navigation";
+import Navigation from "./components/Navigation";
 import FormOld from "./components/form-old";
 import FormUseActionState from "./components/form-useActionState";
 import CodePreview from "./components/CodePreview";
@@ -17,7 +17,7 @@ import FormUseActionStateCode from "./components/form-useActionState/index.tsx?r
 
 const DELAY = 1000;
 
-function App() {
+const App = () => {
   const [reminders, setReminders] = useState([
     {
       id: 1,
@@ -71,7 +71,7 @@ function App() {
                 element={<FormOld createReminder={createReminder} />}
               />
               <Route
-                path="/new"
+                path="/use-action-state"
                 element={<FormUseActionState createReminder={createReminder} />}
               />
             </Routes>
@@ -82,22 +82,12 @@ function App() {
               <Route path="/" element={<Navigate to="/old" replace />} />
               <Route
                 path="/old"
-                element={
-                  <CodePreview
-                    code={FormOldCode}
-                    title="React 18 Form Implementation"
-                    language="tsx"
-                  />
-                }
+                element={<CodePreview code={FormOldCode} language="tsx" />}
               />
               <Route
-                path="/new"
+                path="/use-action-state"
                 element={
-                  <CodePreview
-                    code={FormUseActionStateCode}
-                    title="useActionState Form Implementation"
-                    language="tsx"
-                  />
+                  <CodePreview code={FormUseActionStateCode} language="tsx" />
                 }
               />
             </Routes>
@@ -106,6 +96,6 @@ function App() {
       </main>
     </Router>
   );
-}
+};
 
 export default App;

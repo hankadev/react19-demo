@@ -25,7 +25,7 @@ const Form: React.FC<FormProps> = ({ createReminder }) => {
     const result = await createReminder(title, description);
     setIsPending(false);
 
-    if (result && result.error) {
+    if (result?.error) {
       setError(result.error);
       return;
     }

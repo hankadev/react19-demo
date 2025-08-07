@@ -5,7 +5,7 @@ const Navigation = () => (
     <NavLink to="/old" className="nav-link">
       React 18
     </NavLink>
-    <NavLink to="/new" className="nav-link">
+    <NavLink to="/use-action-state" className="nav-link">
       useActionState
     </NavLink>
   </nav>

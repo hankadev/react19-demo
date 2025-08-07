@@ -120,9 +120,10 @@ nav a {
   padding: 0.5rem 2rem;
   text-decoration: none;
   cursor: pointer;
-  border: 1px solid var(--secondary);
+  border: 2px solid var(--secondary);
   border-radius: var(--radius);
   margin: 0.5rem;
+  font-weight: bold;
 }
 
 nav  a.active {
