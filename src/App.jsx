@@ -9,11 +9,13 @@ import {
 import Navigation from "./components/Navigation";
 import FormOld from "./components/form-old";
 import FormUseActionState from "./components/form-useActionState";
+import FormUseTransition from "./components/form-useTransition";
 import CodePreview from "./components/CodePreview";
 
 // Import source code as raw text
 import FormOldCode from "./components/form-old/index.tsx?raw";
 import FormUseActionStateCode from "./components/form-useActionState/index.tsx?raw";
+import FormUseTransitionCode from "./components/form-useTransition/index.tsx?raw";
 
 const DELAY = 1000;
 
@@ -71,6 +73,10 @@ const App = () => {
                 element={<FormOld createReminder={createReminder} />}
               />
               <Route
+                path="/use-transition"
+                element={<FormUseTransition createReminder={createReminder} />}
+              />
+              <Route
                 path="/use-action-state"
                 element={<FormUseActionState createReminder={createReminder} />}
               />
@@ -83,6 +89,12 @@ const App = () => {
               <Route
                 path="/old"
                 element={<CodePreview code={FormOldCode} language="tsx" />}
+              />
+              <Route
+                path="/use-transition"
+                element={
+                  <CodePreview code={FormUseTransitionCode} language="tsx" />
+                }
               />
               <Route
                 path="/use-action-state"

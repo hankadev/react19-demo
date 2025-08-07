@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, ChangeEvent } from "react";
+import React, { useState, FormEvent, ChangeEvent, useTransition } from "react";
 
 interface CreateReminderResult {
   error?: string;
@@ -14,23 +14,20 @@ interface FormProps {
 const Form: React.FC<FormProps> = ({ createReminder }) => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
-  const [isPending, setIsPending] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
+  const [isPending, startTransition] = useTransition();
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    setIsPending(true);
-    const result = await createReminder(title, description);
-    setIsPending(false);
-
-    if (result?.error) {
-      setError(result.error);
-      return;
-    }
-
-    setTitle("");
-    setDescription("");
+    startTransition(async () => {
+      const error = await createReminder(title, description);
+      if (error?.error) {
+        setError(error.error);
+        return;
+      }
+      setTitle("");
+      setDescription("");
+    });
   };
 
   return (
