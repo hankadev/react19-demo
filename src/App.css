@@ -10,17 +10,20 @@ body {
   background-color: var(--primary);
   color: var(--text);
   font-family: sans-serif;
-  width: 100vw;
   min-height: 100vh;
   padding: 2rem;
   margin: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 section {
@@ -65,10 +68,10 @@ p {
 
 
 form {
-  margin: 2rem;
+  margin: 2rem 0;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
 }
 
 label {
@@ -140,6 +143,69 @@ nav  a.active {
   }
 
   form {
+    width: 100%;
+  }
+}
+
+/* Main content layout */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  align-items: start;
+  margin-top: 2rem;
+  box-sizing: border-box;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.right-column {
+  min-width: 0;
+}
+
+.form-with-preview {
+  display: contents;
+}
+
+.code-preview {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.code-preview h3 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.code-preview pre {
+  margin: 0;
+  overflow: visible;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 100% !important;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .right-column {
     width: 100%;
   }
 }
