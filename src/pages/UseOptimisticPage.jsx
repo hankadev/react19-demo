@@ -22,6 +22,8 @@ const UseOptimisticPage = ({ reminders, createReminder }) => {
 
   return (
     <>
+      <title>useOptimistic example</title>
+      <meta name="keywords" content="React 19, useOptimistic" />
       <RemindersList reminders={optimisticReminders} />
       <FormUseActionState createReminder={createReminderOptimistic} />
     </>
