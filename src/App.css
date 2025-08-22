@@ -17,13 +17,21 @@ body {
   overflow-x: hidden;
 }
 
-main {
+main, header {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  font-weight: bold;
 }
 
 section {
@@ -119,10 +127,6 @@ p {
   100% { transform: rotate(360deg); }
 }
 
-
-
-
-
 form {
   margin: 2rem 0;
   display: flex;
@@ -171,6 +175,10 @@ textarea {
   text-align: center;
 }
 
+nav {
+  display: flex;
+}
+
 nav a {
   color: var(--secondary);
   padding: 0.5rem 2rem;
@@ -178,7 +186,7 @@ nav a {
   cursor: pointer;
   border: 2px solid var(--secondary);
   border-radius: var(--radius);
-  margin: 0.5rem;
+  margin:0 0.5rem;
   font-weight: bold;
 }
 

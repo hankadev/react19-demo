@@ -19,6 +19,7 @@ import FormOldCode from "./components/form-old/index.tsx?raw";
 import FormUseActionStateCode from "./components/form-useActionState/index.tsx?raw";
 import FormUseTransitionCode from "./components/form-useTransition/index.tsx?raw";
 import UseOptimisticPageCode from "./pages/UseOptimisticPage.jsx?raw";
+import Footer from "./components/Footer";
 
 const DELAY = 1000;
 
@@ -54,10 +55,11 @@ const App = () => {
 
   return (
     <Router>
-      <main>
+      <header>
         <Navigation />
         <h1>Remember it &#128161;</h1>
-
+      </header>
+      <main>
         <div className="main-content">
           <div className="left-column">
             <Routes>
@@ -130,6 +132,7 @@ const App = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </Router>
   );
 };
